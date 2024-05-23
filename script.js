@@ -31,7 +31,6 @@ function abreFechaMenu() {
         // Mostrar o icone barras
         iconeBarras.style.display = "inline"
     }
-
 }
 
 onresize = () => {
@@ -50,14 +49,14 @@ onresize = () => {
 let banner = document.querySelector(".banner")
 
 // let slides = [0, 1, 2]
-// slide[0]--> primeiro-banner
-// slide[1]--> segundo-banner
-// slide[2]--> terceiro-banner
+// slide[0] --> primeiro-banner
+// slide[1] --> segundo-banner
+// slide[2] --> terceiro-banner
 
 let slides = [
-    "primeiro-banner",
-    "segundo-banner",
-    "terceiro-banner"
+    "primeiro-banner", //0
+    "segundo-banner", //1
+    "terceiro-banner" //2
 ]
 
 let slideAtual = 0
@@ -65,12 +64,48 @@ let slideAtual = 0
 banner.classList.add(slides[slideAtual])
 
 function mostrarProximoSlide() {
+
     // Remover o slide anterior
     banner.classList.remove(slides[slideAtual])
 
-    // Somar 1 na variavel slide atual
-    slideAtual++
+    if (slideAtual < 2) {
+        // Somar 1 na variavel slide atual
+        slideAtual++
+    } else {
+        //Voltar para o primeiro banner
+        slideAtual = 0
+    }
 
     // Mostrar slide de acordo com o slide atual
+    banner.classList.add(slides[slideAtual])
+}
+
+function mostrarSlideAnterior() {
+    // Remover o slide anterior
+    banner.classList.remove(slides[slideAtual])
+
+    if (slideAtual > 0) {
+
+        //Subtrair 1 na variavel slideAtual
+        slideAtual--
+
+    } else {
+        //Voltar para o ultimo slide
+        slideAtual = 2
+    }
+
+
+    // Mostrar slide de acordo com o slide atual
+    banner.classList.add(slides[slideAtual])
+}
+
+function selecionarSlide(indiceSlide) {
+    // Remove o slide atual
+    banner.classList.remove(slides[slideAtual])
+
+    // Atualize a variavel com o indice de slide selecionado
+    slideAtual = indiceSlide
+
+    //  Mostra o slide selecionado e salvo na variavel slideAtual
     banner.classList.add(slides[slideAtual])
 }
