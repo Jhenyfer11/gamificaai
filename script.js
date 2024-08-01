@@ -111,41 +111,41 @@ function selecionarSlide(indiceSlide) {
 }
 
 
-// Carregmento dinâmico dos cases
-let listaCases = []
+// // Carregmento dinâmico dos cases
+// let listaCases = []
 
-function renderizarCases() {
-    // Encontrar o elemento para inserir os cards
-    let containerCards = document.querySelector(".container-cards")
+// function renderizarCases() {
+//     // Encontrar o elemento para inserir os cards
+//     let containerCards = document.querySelector(".container-cards")
 
-    // Variavel para guardar o html dos cases montados
-    let template = ""
+//     // Variavel para guardar o html dos cases montados
+//     let template = ""
 
-    // Para cada case da listaCases
-    listaCases.forEach(cardCase => {
-        // Montar o html do card, passando os atributos do case
-        template += `<div class="card">
-            <img src=${cardCase.imagem} alt="">
-            <p>${cardCase.descricao} </p>
-            <button>Ver mais</button>
-        </div>`
-    })
+//     // Para cada case da listaCases
+//     listaCases.forEach(cardCase => {
+//         // Montar o html do card, passando os atributos do case
+//         template += `<div class="card">
+//             <img src=${cardCase.imagem} alt="">
+//             <p>${cardCase.descricao} </p>
+//             <button>Ver mais</button>
+//         </div>`
+//     })
 
-    // Inserir html dos cases montados no elemento container-cards
-    containerCards.innerHTML = template
-}
+//     // Inserir html dos cases montados no elemento container-cards
+//     containerCards.innerHTML = template
+// }
 
-function carregarCases() {
-    // Metodo HTTP GET - Read/Leitura - Serve para mostrar um item ou uma lista de itens
-    fetch("http://localhost:3000/cases")
-        // Deserialization - Desserialização
-        .then((resposta) => resposta.json())
-        .then((dadosTratados) => {
-            console.log(dadosTratados)
-            listaCases = dadosTratados
-            renderizarCases()
-        })
-}
+// function carregarCases() {
+//     // Metodo HTTP GET - Read/Leitura - Serve para mostrar um item ou uma lista de itens
+//     fetch("http://localhost:3000/cases")
+//         // Deserialization - Desserialização
+//         .then((resposta) => resposta.json())
+//         .then((dadosTratados) => {
+//             console.log(dadosTratados)
+//             listaCases = dadosTratados
+//             renderizarCases()
+//         })
+// }
 
 function solicitarOrcamento(event) {
     // Pegar os valores dos imputs
